@@ -269,7 +269,7 @@ def analyze_vehicle_component(component_type, image_data):
 
 # %% Streamlit UI
 st.set_page_config(page_title="Vehicle Inspector", layout="wide")
-st.title("🚛 Vehicle Component Safety Inspector")
+st.title("🚛 KAYAAN: Vehicle Component Safety Inspector")
 st.write("Upload an image and select component type for safety analysis")
 
 # Component selection
