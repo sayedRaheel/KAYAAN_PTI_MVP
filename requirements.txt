@@ -1,5 +1,5 @@
 streamlit
 openai
 python-dotenv
-python-base64
-requests
+
+
