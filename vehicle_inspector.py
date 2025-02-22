@@ -22,6 +22,7 @@ PROMPT_REGISTRY = {
 3. Inflation status (visual assessment)
 4. Mounting security (all lug nuts present and tight)
 5. Rim condition (no cracks or damage)
+If image does not show steering tires, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -44,6 +45,7 @@ Return JSON: {
 4. Inflation consistency
 5. Tread depth (minimum 2/32")
 6. Dual tire matching
+If image does not show rear tire set, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -65,6 +67,7 @@ Return JSON: {
 3. Proper positioning
 4. Coverage angle
 5. Hood/fender mirror condition
+If image does not show truck mirrors, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -84,6 +87,7 @@ Return JSON: {
 2. Height alignment
 3. Structural integrity
 4. No sagging
+If image does not show truck bumper, mark component_match as incorrect
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -103,6 +107,7 @@ Return JSON: {
 3. Lens condition
 4. Even brightness
 5. Proper mounting
+If image does not show truck head lights, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -116,13 +121,34 @@ Return JSON: {
 }"""
     },
 
-    "mud_flaps": {
-        "system_prompt": """Analyze mud flaps for safety and compliance:
+    "Truck_mud_flaps": {
+        "system_prompt": """Analyze Truck mud flaps for safety and compliance:
 1. Proper height from ground
 2. Secure mounting
 3. No damage/tears
 4. Width coverage
 5. Anti-spray compliance
+If image does not show truck mud flaps, mark component_match as incorrect.
+Return JSON: {
+    "status": "pass|fail",
+    "confidence": 0-1,
+    "height_correct": boolean,
+    "mount_secure": boolean,
+    "condition": "good|damaged",
+    "width_adequate": boolean,
+    "spray_compliant": boolean,
+    "component_match": "correct|incorrect",
+    "remark":"Remark"
+}"""
+    },
+        "Trailer_mud_flaps": {
+        "system_prompt": """Analyze Trailer mud flaps for safety and compliance:
+1. Proper height from ground
+2. Secure mounting
+3. No damage/tears
+4. Width coverage
+5. Anti-spray compliance
+If image does not show Trailer mud flaps, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -142,6 +168,7 @@ Return JSON: {
 2. Wiper blade condition
 3. Wiper arm function
 4. Proper coverage
+If image does not show windshield and wipers, mark component_match as incorrect
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -180,6 +207,68 @@ Return JSON: {
     "remark": string
 }"""
     },
+    "truck_engine_oil": {
+        "system_prompt": """Analyze truck engine oil level and condition:
+1. Oil level against MIN/MAX marks
+2. Oil color check (normal/dark/contaminated)
+3. Dipstick condition check
+4. Check for leaks around dipstick
+5. Oil clarity assessment
+If image does not show engine oil dipstick/level indicator, mark component_match as incorrect.
+Return JSON: {
+    "status": "pass|fail",
+    "confidence": 0-1,
+    "oil_level": "full|low|empty",
+    "oil_color": "normal|dark|contaminated",
+    "dipstick_condition": "good|damaged",
+    "leaks_present": boolean,
+    "clarity": "clear|cloudy",
+    "component_match": "correct|incorrect",
+    "remark":"Remark"
+}"""
+    },
+
+    "truck_engine_coolant": {
+        "system_prompt": """Analyze truck engine coolant level and condition:
+1. Coolant level against MIN/MAX marks
+2. Coolant color check
+3. Reservoir condition
+4. Cap security check
+5. Check for leaks/overflow
+If image does not show coolant reservoir/radiator cap, mark component_match as incorrect.
+Return JSON: {
+    "status": "pass|fail",
+    "confidence": 0-1,
+    "coolant_level": "full|low|empty",
+    "coolant_color": "normal|discolored",
+    "reservoir_condition": "good|damaged",
+    "cap_secure": boolean,
+    "leaks_present": boolean,
+    "component_match": "correct|incorrect",
+    "remark":"Remark"
+}"""
+    },
+
+    "truck_washer_fluid": {
+        "system_prompt": """Analyze truck washer fluid level and condition:
+1. Fluid level against MIN/MAX marks
+2. Fluid color check
+3. Reservoir condition
+4. Cap security check
+5. Check for leaks
+If image does not show washer fluid reservoir, mark component_match as incorrect.
+Return JSON: {
+    "status": "pass|fail",
+    "confidence": 0-1,
+    "fluid_level": "full|low|empty",
+    "fluid_color": "normal|discolored",
+    "reservoir_condition": "good|damaged",
+    "cap_secure": boolean,
+    "leaks_present": boolean,
+    "component_match": "correct|incorrect",
+    "remark":"Remark"
+}"""
+    },
 
     "trailer_inspection": {
         "system_prompt": """Analyze trailer condition and compliance:
@@ -188,6 +277,8 @@ Return JSON: {
 3. Door seals/operation
 4. Landing gear condition
 5. Coupling security
+
+If image does not show trailer body and components, mark component_match as incorrect
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -207,6 +298,8 @@ Return JSON: {
 2. Matching pairs
 3. Proper spacing
 4. Inflation status
+
+If image does not show trailer tires, mark component_match as incorrect.
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
@@ -225,6 +318,7 @@ Return JSON: {
 2. Turn signals
 3. Marker lights
 4. Reflector condition
+If image does not show trailer lights, mark component_match as incorrect
 Return JSON: {
     "status": "pass|fail",
     "confidence": 0-1,
