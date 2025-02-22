@@ -31,6 +31,7 @@ Return JSON: {
     "sidewall_condition": "good|damaged",
     "lug_nut_status": "complete|missing",
     "rim_integrity": "good|damaged",
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -52,6 +53,7 @@ Return JSON: {
     "tread_depth_32nds": number,
     "tire_matching": "matched|mismatched",
     "wear_pattern": "even|uneven",
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -71,6 +73,7 @@ Return JSON: {
     "position_correct": boolean,
     "coverage_adequate": boolean,
     "fender_mirror_status": "intact|damaged|missing",
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -88,6 +91,7 @@ Return JSON: {
     "height_correct": boolean,
     "structural_integrity": "good|compromised",
     "sagging_present": boolean,
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -107,6 +111,7 @@ Return JSON: {
     "lens_condition": "clear|damaged",
     "brightness_even": boolean,
     "mount_secure": boolean,
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -126,6 +131,7 @@ Return JSON: {
     "condition": "good|damaged",
     "width_adequate": boolean,
     "spray_compliant": boolean,
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -143,6 +149,7 @@ Return JSON: {
     "blade_condition": "good|worn|damaged",
     "arm_function": "normal|impaired",
     "coverage_complete": boolean,
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -189,6 +196,7 @@ Return JSON: {
     "door_seals": "good|damaged",
     "landing_gear": "functional|damaged",
     "coupling_secure": boolean,
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -206,6 +214,7 @@ Return JSON: {
     "pairs_matched": boolean,
     "spacing_adequate": boolean,
     "inflation_status": "normal|low|high",
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     },
@@ -223,6 +232,7 @@ Return JSON: {
     "turn_signals": "functional|failed",
     "markers": "complete|incomplete",
     "reflectors": "good|damaged",
+    "component_match": "correct|incorrect",
     "remark":"Remark"
 }"""
     }
